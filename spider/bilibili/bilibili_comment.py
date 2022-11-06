@@ -23,8 +23,9 @@ def geturl(page):
     print("page  "+str(page))
     return text
 
+
 def getData():
-    for page in range(1,max_page+1):
+    for page in range(1, max_page+1):
         text = geturl(page)
         comment_list = []
         user_name = []
