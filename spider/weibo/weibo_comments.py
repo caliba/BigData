@@ -12,9 +12,9 @@ import pandas as pd
 import jsonpath
 import requests
 
-key_word = 'TES'
-weibo_file = 'weibo.csv'
-max_page = 4
+key_word = 'EDG'
+weibo_file = 'weibo_edg.csv'
+max_page = 40
 
 
 def geturl(page):
@@ -43,7 +43,7 @@ def saveData():
         if type(text_list) == list and len(text_list) > 0:
             for text in text_list:
                 text2 = dr.sub('', text)
-                text2_list.append(text2)
+                text2_list.append(text2.replace("\n", "|"))
 
         author = jsonpath.jsonpath(cards, '$..mblog.user.screen_name')
         repost = jsonpath.jsonpath(cards, '$..mblog.reposts_count')
